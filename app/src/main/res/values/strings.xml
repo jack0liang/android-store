@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">娇兰佳人</string>
+    <string name="title_home">首页</string>
+    <string name="title_brand">品牌馆</string>
+    <string name="title_cart">购物车</string>
+    <string name="title_mystore">我的店</string>
+</resources>
