@@ -19,13 +19,13 @@
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="com.example.teststore.ui.notifications.NotificationsFragment"
+        android:name="com.example.teststore.ui.cart.CartFragment"
         android:label="@string/title_cart"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/navigation_mystore"
-        android:name="com.example.teststore.ui.notifications.NotificationsFragment"
+        android:name="com.example.teststore.ui.mystore.MyStoreFragment"
         android:label="@string/title_mystore"
         tools:layout="@layout/fragment_mystore" />
 </navigation>

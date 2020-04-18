@@ -1,4 +1,4 @@
-package com.example.teststore.ui.notifications;
+package com.example.teststore.ui.cart;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.teststore.R;
 
-public class NotificationsFragment extends Fragment {
+public class CartFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private CartViewModel cartViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
+        cartViewModel =
+                ViewModelProviders.of(this).get(CartViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = root.findViewById(R.id.text_cart);
+        cartViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

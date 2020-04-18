@@ -41,9 +41,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun finish() {
         super.finish()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-            overridePendingTransition(R.anim.move_left_in_activity, R.anim.move_right_out_activity)
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
+//            overridePendingTransition(R.anim.move_left_in_activity, R.anim.move_right_out_activity)
+//        }
     }
 
 

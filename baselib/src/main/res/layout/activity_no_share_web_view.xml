@@ -10,22 +10,22 @@
     <RelativeLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/common_top_height_lower"
-        android:background="@color/common_fff">
+        android:layout_height="46dp"
+        android:background="#FFF">
 
         <LinearLayout
             android:id="@+id/li_back"
-            android:layout_width="@dimen/dp_60"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:visibility="visible">
 
             <ImageView
                 android:id="@+id/title_bar_return"
-                android:layout_width="@dimen/common_dp20"
-                android:layout_height="@dimen/common_dp20"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="left|center_vertical"
-                android:layout_marginLeft="@dimen/common_dp10"
+                android:layout_marginLeft="10dp"
                 android:scaleType="center"
                 app:srcCompat="@mipmap/ic_back" />
 
@@ -38,35 +38,35 @@
                 android:ellipsize="end"
                 android:gravity="center"
                 android:singleLine="true"
-                android:textColor="@color/common_black"
-                android:textSize="@dimen/common_text_size_xxl" />
+                android:textColor="#000"
+                android:textSize="17sp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/title_bar_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp_60"
-            android:layout_marginRight="@dimen/dp_60"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
             android:ellipsize="end"
             android:gravity="center"
             android:singleLine="true"
-            android:textColor="@color/gialen_major_24201f"
-            android:textSize="@dimen/common_text_size_xxl" />
+            android:textColor="#24201f"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/title_bar_right"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/dp_10"
-            android:layout_marginRight="@dimen/common_dp10"
+            android:layout_margin="10dp"
+            android:layout_marginRight="10dp"
             android:ellipsize="end"
             android:gravity="center"
             android:singleLine="true"
             android:text="保存"
-            android:textColor="@color/gialen_major_212121"
-            android:textSize="@dimen/common_text_size_xl"
+            android:textColor="#212121"
+            android:textSize="14sp"
             android:visibility="gone" />
 
         <ImageView
@@ -74,8 +74,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/dp_10"
-            android:layout_marginRight="@dimen/common_dp10"
+            android:layout_margin="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="center"
             android:visibility="gone" />
 
