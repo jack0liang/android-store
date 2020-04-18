@@ -54,9 +54,6 @@ abstract class BaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(loadingDialog==null){
-            loadingDialog = LoadingDialog(context!!)
-        }
         initView()
     }
 
@@ -69,6 +66,9 @@ abstract class BaseFragment : Fragment() {
 
 
     protected open fun showLoading() {
+        if(loadingDialog==null){
+            loadingDialog = LoadingDialog(context!!)
+        }
         if (!activity!!.isDestroyed) {
             loadingDialog?.show()
         }
