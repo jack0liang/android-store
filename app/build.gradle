@@ -13,6 +13,8 @@ android {
         versionCode 1
         versionName "1.0"
 
+        flavorDimensions "default"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -23,6 +25,16 @@ android {
         }
     }
 
+    productFlavors {
+        uat {
+            buildConfigField "String", "BASEURL", "http://cs-jiaomigo.gialen.com/gateway/"
+        }
+
+        //生产环境
+        prod {
+            buildConfigField "String", "BASEURL", "https://apigw.gialen.com/"
+        }
+    }
 }
 
 dependencies {
