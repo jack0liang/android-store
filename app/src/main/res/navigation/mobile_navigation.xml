@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_mystore"
-        android:name="com.example.teststore.ui.mystore.MyStoreFragment"
+        android:name="com.example.teststore.ui.mystore.VIPMineFragment"
         android:label="@string/title_mystore"
-        tools:layout="@layout/fragment_mystore" />
+        tools:layout="@layout/vip_mine_fragment" />
 </navigation>

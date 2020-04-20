@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gialen.baselib" />
+    package="com.gialen.baselib">
+
+    <application>
+        <activity android:name=".ui.LoginPhoneActivity"/>
+        <activity android:name=".NoShareWebViewActivity"/>
+    </application>
+</manifest>

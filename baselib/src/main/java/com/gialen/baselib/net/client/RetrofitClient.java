@@ -9,7 +9,7 @@ import com.gialen.baselib.BuildConfig;
 import com.gialen.baselib.R;
 import com.gialen.baselib.data_manager.SharedPreferencesManager;
 import com.gialen.baselib.net.HTTPSCerUtils;
-//import com.hengte.retrofit.net.converterfactory.JSONObjectConverterFactory;
+import com.hengte.retrofit.net.converterfactory.JSONObjectConverterFactory;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -91,7 +91,7 @@ public class RetrofitClient {
             mRetrofit = new Retrofit.Builder()
                     .client(okHttpClient)
                     .addConverterFactory(ScalarsConverterFactory.create())
-                    //.addConverterFactory(JSONObjectConverterFactory.create())
+                    .addConverterFactory(JSONObjectConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .baseUrl(baseUrl)

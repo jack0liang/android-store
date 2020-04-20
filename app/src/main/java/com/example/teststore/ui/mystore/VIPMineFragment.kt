@@ -26,10 +26,11 @@ import com.gialen.baselib.net.HttpManager
 import com.gialen.baselib.net.response.ResultJSONObjectObserver
 import com.gialen.baselib.util.GlideCircleTransform
 import com.gialen.baselib.util.ImageLoader
-import com.gialen.baselib.util.Logger
+//import com.gialen.baselib.util.Logger
 import com.gialen.baselib.viewmodel.UserInfoViewModel
 
-import com.gialen.vip.R
+import com.example.teststore.R
+import com.gialen.baselib.data_manager.DataManager
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import com.tencent.bugly.Bugly
@@ -71,8 +72,8 @@ class VIPMineFragment : BaseFragment(), View.OnClickListener {
     lateinit var tv_phone: TextView
 
 
-    private lateinit var goodsListAdapter: GoodsListAdapter
-    private var list = ArrayList<RecommendProductBean>()
+    //private lateinit var goodsListAdapter: GoodsListAdapter
+    //private var list = ArrayList<RecommendProductBean>()
 
     override fun initView() {
         viewModel = ViewModelProviders.of(this).get(UserInfoViewModel::class.java)
@@ -122,8 +123,8 @@ class VIPMineFragment : BaseFragment(), View.OnClickListener {
         if (userInfo != null) {
             recycler_view.addHeaderView(view2)
         }
-        goodsListAdapter = GoodsListAdapter(context!!, false)
-        recycler_view.adapter = goodsListAdapter
+//        goodsListAdapter = GoodsListAdapter(context!!, false)
+//        recycler_view.adapter = goodsListAdapter
 
         refreshLayout.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
             override fun onRefresh(refreshLayout: RefreshLayout) {
@@ -158,26 +159,26 @@ class VIPMineFragment : BaseFragment(), View.OnClickListener {
             data.put("terminal", 2)
             data.put("page", page)
             data.put("limit", 6)
-            HttpManager.postHasToken("app/req/recommend.productOrderRecommendV1", userInfo.token, data, object : ResultJSONObjectObserver(lifecycle) {
-                override fun onSuccess(result: JSONObject?) {
-                    val jsonArray = result!!.getJSONArray("list")
-                    if (jsonArray.length() == 0) {
-                        refreshLayout.finishLoadMore(200,true,true)
-                    } else {
-                        val array = JSONArray.parseArray(jsonArray.toString(), RecommendProductBean::class.java)
-                        list.addAll(array)
-                        goodsListAdapter.setList(list)
-                        refreshLayout.finishLoadMore(200,true,false)
-
-                    }
-
-                }
-
-                override fun onFail(msg: String?,code :Int) {
-                    showToast(msg!!)
-                    refreshLayout.finishLoadMore(false)
-                }
-            })
+//            HttpManager.postHasToken("app/req/recommend.productOrderRecommendV1", userInfo.token, data, object : ResultJSONObjectObserver<JSONObject>(lifecycle) {
+//                override fun onSuccess(result: JSONObject?) {
+//                    val jsonArray = result!!.getJSONArray("list")
+//                    if (jsonArray.length() == 0) {
+//                        refreshLayout.finishLoadMore(200,true,true)
+//                    } else {
+//                        val array = JSONArray.parseArray(jsonArray.toString(), RecommendProductBean::class.java)
+//                        list.addAll(array)
+//                        goodsListAdapter.setList(list)
+//                        refreshLayout.finishLoadMore(200,true,false)
+//
+//                    }
+//
+//                }
+//
+//                override fun onFail(msg: String?,code :Int) {
+//                    showToast(msg!!)
+//                    refreshLayout.finishLoadMore(false)
+//                }
+//            })
         }else{
             refreshLayout.finishLoadMore(false)
 
@@ -194,25 +195,25 @@ class VIPMineFragment : BaseFragment(), View.OnClickListener {
             data.put("terminal", 2)
             data.put("page", page)
             data.put("limit", 6)
-            HttpManager.postHasToken("app/req/recommend.productOrderRecommendV1", userInfo.token, data, object : ResultJSONObjectObserver(lifecycle) {
-                override fun onSuccess(result: JSONObject?) {
-                    val jsonArray = result!!.getJSONArray("list")
-                    if (jsonArray.length() == 0) {
-                        recycler_view.removeHeaderView(view2)
-                    } else {
-                        val array = JSONArray.parseArray(jsonArray.toString(), RecommendProductBean::class.java)
-                        list.clear()
-                        list.addAll(array)
-                        goodsListAdapter.setList(list)
-                    }
-                    refreshLayout.finishRefresh()
-                }
-
-                override fun onFail(msg: String?,code :Int) {
-                    showToast(msg!!)
-                    refreshLayout.finishRefresh()
-                }
-            })
+//            HttpManager.postHasToken("app/req/recommend.productOrderRecommendV1", userInfo.token, data, object : ResultJSONObjectObserver(lifecycle) {
+//                override fun onSuccess(result: JSONObject?) {
+//                    val jsonArray = result!!.getJSONArray("list")
+//                    if (jsonArray.length() == 0) {
+//                        recycler_view.removeHeaderView(view2)
+//                    } else {
+//                        val array = JSONArray.parseArray(jsonArray.toString(), RecommendProductBean::class.java)
+//                        list.clear()
+//                        list.addAll(array)
+//                        goodsListAdapter.setList(list)
+//                    }
+//                    refreshLayout.finishRefresh()
+//                }
+//
+//                override fun onFail(msg: String?,code :Int) {
+//                    showToast(msg!!)
+//                    refreshLayout.finishRefresh()
+//                }
+//            })
         }else{
             refreshLayout.finishRefresh()
         }
@@ -256,8 +257,8 @@ class VIPMineFragment : BaseFragment(), View.OnClickListener {
             tv_coin.text = "-"
             tv_coupon_num.text = "-"
             recycler_view.removeHeaderView(view2)
-            list.clear()
-            goodsListAdapter.setList(list)
+//            list.clear()
+//            goodsListAdapter.setList(list)
             refreshLayout.finishRefresh()
         }
 
@@ -354,12 +355,12 @@ class VIPMineFragment : BaseFragment(), View.OnClickListener {
                         }
                         if (isNewUser) {
                             var tags = setOf<String>("NEW_CUSTOMERS",tags)
-                            val tagAliasBean = JPushTagAliasOperatorHelper.TagAliasBean(JPushTagAliasOperatorHelper.ACTION_SET, "" + queryUserInfo.id, tags, false)
-                            JPushTagAliasOperatorHelper.getInstance().handleAction(context, JPushTagAliasOperatorHelper.sequence, tagAliasBean)
+//                            val tagAliasBean = JPushTagAliasOperatorHelper.TagAliasBean(JPushTagAliasOperatorHelper.ACTION_SET, "" + queryUserInfo.id, tags, false)
+//                            JPushTagAliasOperatorHelper.getInstance().handleAction(context, JPushTagAliasOperatorHelper.sequence, tagAliasBean)
                         } else {
                             var tags = setOf<String>("OLD_CUSTOMERS",tags)
-                            val tagAliasBean = JPushTagAliasOperatorHelper.TagAliasBean(JPushTagAliasOperatorHelper.ACTION_SET, "" + queryUserInfo.id, tags, false)
-                            JPushTagAliasOperatorHelper.getInstance().handleAction(context, JPushTagAliasOperatorHelper.sequence, tagAliasBean)
+//                            val tagAliasBean = JPushTagAliasOperatorHelper.TagAliasBean(JPushTagAliasOperatorHelper.ACTION_SET, "" + queryUserInfo.id, tags, false)
+//                            JPushTagAliasOperatorHelper.getInstance().handleAction(context, JPushTagAliasOperatorHelper.sequence, tagAliasBean)
                         }
                     }
 

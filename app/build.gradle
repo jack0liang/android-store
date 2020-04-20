@@ -27,12 +27,12 @@ android {
 
     productFlavors {
         uat {
-            buildConfigField "String", "BASEURL", "http://cs-jiaomigo.gialen.com/gateway/"
+            //buildConfigField "String", "BASEURL", "http://cs-jiaomigo.gialen.com/gateway/"
         }
 
         //生产环境
         prod {
-            buildConfigField "String", "BASEURL", "https://apigw.gialen.com/"
+            //buildConfigField "String", "BASEURL", "https://apigw.gialen.com/"
         }
     }
 }
@@ -54,6 +54,11 @@ dependencies {
     implementation "androidx.core:core-ktx:+"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    api 'com.github.donkingliang:HeaderViewAdapter:1.2.2'
+    //下拉刷新，上拉加载
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
+    //api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-18'
 }
 repositories {
     mavenCentral()
