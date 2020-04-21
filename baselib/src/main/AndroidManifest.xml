@@ -4,5 +4,6 @@
     <application>
         <activity android:name=".ui.LoginPhoneActivity"/>
         <activity android:name=".NoShareWebViewActivity"/>
+        <activity android:name=".ui.LoginPhoneCodeActivity" />
     </application>
 </manifest>

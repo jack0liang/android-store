@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.gialen.baselib.R
+import com.gialen.baselib.base.DataBingBaseActivity
 //import com.gialen.baselib.base.DataBingBaseActivity
 import com.gialen.baselib.constant.UrlConstant
 import com.gialen.baselib.data_manager.DataManager
@@ -28,27 +29,16 @@ import kotlinx.android.synthetic.main.activity_login_phone.*
 import org.json.JSONObject
 
 @Route(path = "/base/login_phone")
-class LoginPhoneActivity : AppCompatActivity(), View.OnClickListener {
+class LoginPhoneActivity : DataBingBaseActivity(), View.OnClickListener {
 
-    var loadingDialog: LoadingDialog?=null
-    protected open fun showLoading(){
-        if (loadingDialog!=null) {
-            loadingDialog?.show()
-        }
-    }
-    protected open fun hideLoading(){
-        if (loadingDialog!=null){
-            loadingDialog?.hide()
-        }
-    }
 
-    fun getLayoutId(): Int = R.layout.activity_login_phone
+    override fun getLayoutId(): Int = R.layout.activity_login_phone
     var isAgree: Boolean = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutId())
+
         observePhoneInput()
         ll_login_phone.setOnClickListener(this)
         img_gialen_close.setOnClickListener(this)
@@ -60,12 +50,12 @@ class LoginPhoneActivity : AppCompatActivity(), View.OnClickListener {
             if (it.eventCode == EventCodeConstant.isLogin) {
                 val userInfo = DataManager.getInstance().queryUserInfo()
                 if (userInfo != null) {
-                    if (userInfo.userLevel == 1) {
+                    //if (userInfo.userLevel == 1) {
                         finish()
-                    } else {
-                        ARouter.getInstance().build("/store/main").navigation()
-                        finish()
-                    }
+//                    } else {
+//                        ARouter.getInstance().build("/store/main").navigation()
+//                        finish()
+//                    }
                 }
             }
         })
@@ -90,13 +80,6 @@ class LoginPhoneActivity : AppCompatActivity(), View.OnClickListener {
         })
     }
 
-    protected val toast: Toast by lazy {
-        Toast.makeText(this, "", Toast.LENGTH_SHORT);
-    }
-    fun showToast(msg: String) {
-        toast.setText(msg)
-        toast.show();
-    }
     /**
      * 获取验证码
      */
@@ -127,13 +110,6 @@ class LoginPhoneActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    /**
-     * 隐藏键盘
-     */
-    open fun hideKeyBoard(v: View) {
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(v.windowToken, 0)
-    }
     /**
      * 点击事件
      */

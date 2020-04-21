@@ -30,9 +30,9 @@ public class LoadingDialog extends Dialog {
         this.context = context;
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 
-        //contentView = LayoutInflater.from(context).inflate(R.layout.view_loading_dialog, null);
+        contentView = LayoutInflater.from(context).inflate(R.layout.view_loading_dialog, null);
         contentView.setLayoutParams(params);
-        //iv_progress_dialog = (ImageView) contentView.findViewById(R.id.iv_progress_dialog);
+        iv_progress_dialog = (ImageView) contentView.findViewById(R.id.iv_progress_dialog);
 
 
         //Glide.with(BaseApplication.instance.getApplicationContext()).asGif().load(R.drawable.loading).into(iv_progress_dialog);

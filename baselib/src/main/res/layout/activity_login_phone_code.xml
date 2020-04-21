@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/li_all"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_fff"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:paddingLeft="10dp"
+            android:paddingEnd="10dp"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="46dp">
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_alignParentLeft="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_black_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_cannt_get_code"
+                android:text="收不到验证码？"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="60dp"
+            android:text="请输入短信验证码"
+            android:textColor="#212121"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="30dp"
+            android:maxLines="2"
+            android:text="验证码已发送至135****4005,请在下方输入框输入6位数字验证码"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_get_check_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:textSize="14sp"
+            android:textColor="@color/gialen_commonly_888888"
+            android:gravity="end"
+            android:text="获取验证码" />
+
+
+
+        <EditText
+            android:id="@+id/code_et"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginRight="25dp"
+            android:background="#eeeeee" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_login_phone"
+            android:layout_width="304dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btn_unenable_bg">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="确定"
+                android:textColor="@color/common_fff"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
